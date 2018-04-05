@@ -1,0 +1,45 @@
+<mvc:View controllerName="com.gv.ng.NetworkGraph1.controller.View1" 
+xmlns:html="http://www.w3.org/1999/xhtml"
+xmlns:mvc="sap.ui.core.mvc"
+xmlns:core="sap.ui.core"
+xmlns:layout="sap.suite.ui.commons.networkgraph.layout"
+	displayBlock="true" xmlns="sap.m" xmlns:ng="sap.suite.ui.commons.networkgraph">
+	<App id="idAppControl">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<html:p id="test">CIAO</html:p>
+					<ng:Graph orientation="TopBottom" id="graph" layout="Layered" searchSuggest="suggest" search="search" nodes="{/nodes}" lines="{/lines}">
+						<!--nodes="{/nodes}" lines="{/lines}" -->
+						<ng:layoutAlgorithm>
+							<layout:LayeredLayout mergeEdges="true" nodePlacement="Simple" nodeSpacing="40"/>
+						</ng:layoutAlgorithm>
+						<ng:nodes>
+							<ng:Node icon="sap-icon://action-settings" key="{id}" description="{title}" width="90" collapsed="{collapsed}" attributes="{attributes}"
+							showActionLinksButton="false" showDetailButton="false" descriptionLineSize="0" shape="Box" >
+								<ng:customData>
+									 <core:CustomData key="supervisor" value="{supervisor}"/>
+									<core:CustomData key="team" value="{team}"/>
+									<core:CustomData key="location" value="{location}"/>
+									<core:CustomData key="position" value="{position}"/>
+									<core:CustomData key="team" value="{team}"/>
+									<core:CustomData key="email" value="{email}"/>
+									<core:CustomData key="phone" value="{phone}"/>
+								</ng:customData>
+								<ng:attributes>
+									<ng:ElementAttribute label="{label}" value="{value}"/>
+								</ng:attributes>
+								<ng:image>
+									<ng:NodeImage src="{src}" width="80" height="100"/>
+								</ng:image>
+							</ng:Node>
+						</ng:nodes>
+						<ng:lines>
+							<ng:Line from="{from}" to="{to}" arrowOrientation="None" press="linePress"/>
+						</ng:lines>
+					</ng:Graph>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
